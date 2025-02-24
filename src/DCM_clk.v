@@ -24,7 +24,7 @@ module DCM_clk(
 	output clk_50
     );
 	
-	reg [1:0] cnt = 2'd0;
+	// reg [1:0] cnt = 2'd0;
 	reg clk_buf = 1'b0;
 	
 	// --------------------------------------------- process_DCM
