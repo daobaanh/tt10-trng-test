@@ -22,7 +22,7 @@ module tt_um_daobaanh_rng (
   assign uio_oe  = 0;
 
   // List all unused inputs to prevent warnings
-  wire _unused = &{rst_n, 1'b0};
+  wire _unused = &{rst_n, ui_in[7:1],uio_in[7:0]  1'b0};
 
   // ring_osc part
   top_TRNG TRNG_inst(
