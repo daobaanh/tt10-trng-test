@@ -21,7 +21,7 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////
-(* dont_touch = "yes"*)
+(* keep_hierarchy *)
 module ring_osc#
 	(
 		parameter NO_INVs = 5      // No of inverter stage
@@ -51,6 +51,7 @@ endmodule
 
 
 //////////////////////////////////////////////////////////////////////////////////
+(* keep_hierarchy *)
 module primitive_not(
 	input i_a,
 	output o_b
@@ -67,15 +68,19 @@ module primitive_not(
    //    .I4(0), // LUT input
    //    .I5(0)  // LUT input
    // );
-   (* keep *) sky130_fd_sc_hd__inv_2   sky_inverter (
-        .A  (i_a),
-        .Y  (o_b)
-    );
+
+   // (* keep *) sky130_fd_sc_hd__inv_2   sky_inverter (
+   //      .A  (i_a),
+   //      .Y  (o_b)
+   //  );
+
+   assign o_b = ~i_a;
 
 endmodule
 
 
-//////////////////////////////////////////////////////////////////////////////////   
+//////////////////////////////////////////////////////////////////////////////////
+(* keep_hierarchy *)
 module primitive_nand(
 	input i_a,
 	input i_b,
@@ -93,11 +98,14 @@ module primitive_nand(
    //    .I4(0), // LUT input
    //    .I5(0)  // LUT input
    // );
-   (* keep *) sky130_fd_sc_hd__nand2_2   sky_nand (
-        .Y  (o_c),
-        .A  (i_a),
-        .B  (i_b)
-    );
+
+   // (* keep *) sky130_fd_sc_hd__nand2_2   sky_nand (
+   //      .Y  (o_c),
+   //      .A  (i_a),
+   //      .B  (i_b)
+   //  );
+
+   assign o_c = !(i_a&i_b);
 
 endmodule
 

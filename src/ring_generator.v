@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-(* dont_touch = "yes"*)
+(* keep_hierarchy *)
 module ring_generator#
 	(
 		parameter NO_INVs = 5      // No of inverter stage
@@ -82,7 +82,7 @@ module ring_generator#
 	
 endmodule
 
-
+(* keep_hierarchy *)
 module D_FF(
 	input i_clk,
 	input i_rst,
